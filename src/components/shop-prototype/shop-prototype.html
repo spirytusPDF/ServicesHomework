@@ -1,0 +1,24 @@
+<div style="display: flex;">
+    <section class="shopProducts">
+    <div class="container">
+        @if(cartManager.shopProducts().length>0){
+            @for (product of cartManager.shopProducts(); track product.Id) {
+               <app-product-item [product]="product" [inCart]="false"></app-product-item> 
+            }
+        }
+        @else {<p>No items</p>}
+        
+    </div>
+</section>
+
+<section class="cartProducts">
+    <h1>Total Price: {{cartManager.totalPrice()}}</h1>
+    <button class="Clearbtn" (click)="cartManager.clearCart()">Clear Cart</button>
+    @if(cartProducts().length>0){
+            @for (product of cartProducts(); track product.Id) {
+               <app-product-item [product]="product" [inCart]="true"></app-product-item> 
+            }
+        }
+        @else {<p>No items</p>}
+</section>
+</div>

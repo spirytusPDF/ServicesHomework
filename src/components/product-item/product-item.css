@@ -1,0 +1,90 @@
+:host {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.productCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Product Information */
+.productCard div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex-grow: 1;
+  margin-left: 1rem;
+}
+
+.productCard p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.productCard p:first-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Quantity Input Field */
+.productCard input[type="number"] {
+  width: 70px;
+  padding: 0.35rem 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.productCard input[type="number"]:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Buttons */
+.productCard button {
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Add to Cart Button */
+.productCard button:not([class]) {
+  background-color: #4f46e5;
+  color: #ffffff;
+}
+
+.productCard button:not([class]):hover {
+  background-color: #4338ca;
+}
+
+/* Remove from Cart Button */
+.productCard button:contains("Remove"),
+.productCard div:first-child button {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.productCard div:first-child button:hover {
+  background-color: #dc2626;
+}

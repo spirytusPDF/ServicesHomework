@@ -1,0 +1,23 @@
+<div class="productCard">
+  <div>
+    @if(isInCart === false){
+        <button (click) = "addToCart()">Add to Cart</button>
+    }
+    @else {<button (click) = "removeFromCart()">Remove from Cart</button>}
+    
+  </div>
+  <div>
+    <p>{{product.Name}}</p>
+    <p>Description: {{product.Description}}</p>
+    <p>Price: {{product.Price}}</p>
+    @if(isInCart){
+        <p>Quantity: {{product.Quantity}}</p>
+        <input 
+          type="number" 
+          min="1" 
+          [value]="product.Quantity" 
+          (change)="onQuantityInput($event)" 
+        />
+    }
+  </div>
+</div>
