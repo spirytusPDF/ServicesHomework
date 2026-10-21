@@ -1,0 +1,21 @@
+<div class="task-app">
+      <h2>My Tasks</h2>
+      <div class="filter-controls">
+    <button (click)="setFilter('completed')">See Completed</button>
+    <button (click)="setFilter('incompleted')">See Incompleted</button>
+    <button (click)="setFilter('all')">See All</button>
+  </div>
+      <form  class="add-task">
+        <input [value]="newTaskTitle" (input)="newTaskTitle = $any($event.target).value" placeholder="Add a new task..." />
+        <input [value]="newTaskDesc" (input)="newTaskDesc = $any($event.target).value" placeholder="Add a new task..." />
+        <button type="button" (click)="taskService.addTask(newTaskTitle,newTaskDesc)">Add</button>
+      </form>
+      
+      <div class="task-items">
+    @for (task of displayedTasks(); track task.Id) {
+      <app-task-item [task]="task"></app-task-item>
+    } @empty {
+      <p>No tasks to display.</p>
+    }
+  </div>
+</div>

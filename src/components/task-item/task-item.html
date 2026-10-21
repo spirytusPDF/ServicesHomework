@@ -1,0 +1,20 @@
+<div class="task-item" [class.completed]="task.IsFinished">
+      <input 
+        type="checkbox" 
+        [checked]="task.IsFinished" 
+        (change)="taskService.toggleCompletion(task.Id)" 
+      />
+
+      @if (!isEditing) {
+        <p><span>{{ task.Title }}</span></p>
+        <span>{{ task.Description }}</span>
+        <button (click)="isEditing = true">Edit</button>
+      } @else {
+        <input [value]="editedTitle" (input)="editedTitle = $any($event.target).value" placeholder="Change title..." />
+        <input [value]="editedDesc" (input)="editedDesc = $any($event.target).value" placeholder="Change desc..." />
+        <button (click)="saveEdit()">Save</button>
+        <button (click)="isEditing = false">Cancel</button>
+      }
+
+      <button (click)="taskService.deleteTask(task.Id)">Delete</button>
+</div>

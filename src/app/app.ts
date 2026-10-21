@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DisplayTasks } from '../components/display-tasks/display-tasks';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, DisplayTasks],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('ServicesHomework');
+  
 }
