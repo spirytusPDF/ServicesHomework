@@ -1,0 +1,16 @@
+<div class="movie-card">
+  @if (movie.Poster && movie.Poster !== 'N/A') {
+    <img [src]="movie.Poster" [alt]="movie.Title" />
+  }
+
+  <div class="movie-info">
+    <h3>{{ movie.Title }}</h3>
+    <p><strong>Year:</strong> {{ movie.Year }}</p>
+    <p><strong>Rating:</strong> {{ movie.imdbRating }}</p>
+    <p><strong>Runtime:</strong> {{ movie.Runtime }}</p>
+    <p><strong>Director:</strong> {{ movie.Director }}</p>
+    <p><strong>Actors:</strong> {{ movie.Actors }}</p>
+
+    <p><strong>Plot:</strong> {{ movie.Plot }}</p>
+  </div>
+</div>

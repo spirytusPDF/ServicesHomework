@@ -1,0 +1,32 @@
+<div class="search-container">
+  <h2>Movie Search</h2>
+
+  <form class="search-form">
+    <input 
+      [value]="movieTitle" 
+      (input)="movieTitle = $any($event.target).value" 
+      placeholder="Enter movie title (e.g. Inception)..." 
+    />
+
+    <input 
+      [value]="movieYear" 
+      (input)="movieYear = $any($event.target).value" 
+      placeholder="Year (optional)..." 
+    />
+
+    <select (change)="plotPlotType = $any($event.target).value">
+      <option value="short">Short Plot</option>
+      <option value="full">Full Plot</option>
+    </select>
+
+    <button type="button" (click)="onSearch()">Search</button>
+  </form>
+
+  @if (movieService.errorMessage()) {
+    <p class="error-msg">{{ movieService.errorMessage() }}</p>
+  }
+
+  @if (movieService.movie(); as movie) {
+    <app-movie-card [movie]="movie"></app-movie-card>
+  }
+</div>
